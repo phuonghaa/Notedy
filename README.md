@@ -1,4 +1,4 @@
-#Notedy - Your customised note
+# Notedy - Your customised note
 (To run project, just open index.html)
 
 The project was born simply based on the needs of the authors - storing information links intelligently and effectively!
