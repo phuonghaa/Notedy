@@ -1,0 +1,42 @@
+.file-inside:hover{
+    background-color: #c9e4fb;
+}
+
+.file-inside{
+    padding: 10px;
+}
+
+.file>.file-inside>p{
+    width: 100px;
+    margin: auto;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.file>.file-inside>input{
+    margin: auto;
+    max-width: 100px;
+    font-size: 15px;
+}
+
+.file-list{
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    padding-top: 50px;
+    overflow-y: hidden;
+}
+
+.file{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.file img {
+    max-width: 100px;
+    border: none;
+}

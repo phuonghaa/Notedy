@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notedy..!</title>
+    <link rel="icon" href="img/file.png" type="image/png" sizes="16x16">
+    <link rel="stylesheet" href="css/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class='webname'> NOTEDY..!</div>
+        <div class="form-box">
+            <div class='button-box'>
+                <div id='btn'></div>
+                <button type='button' class='toggle-btn' onclick="loginSlider()">Log In</button>
+                <button type='button' class='toggle-btn' onclick="signupSlider()">Sign Up</button>
+            </div>
+
+            <form id="login" class='input-group'>
+                <input type="text" id='loginUsername' class='input-field' placeholder="User name" autocomplete="off" spellcheck="false">
+                <input type="password" id='loginPassword' class='input-field' placeholder="Password" autocomplete="off" spellcheck="false">
+                <div class="alert login-alert"></div>
+                <button type="button" class=summit-btn onclick="logIn()">Log In</button>
+            </form>
+
+            <form id="signup" class='input-group'>
+                <input type="text" id='signupUsername' class='input-field' placeholder="User name" autocomplete="off" spellcheck="false">
+                <input type="password" id='signupPassword' class='input-field' placeholder="Password" autocomplete="off" spellcheck="false">
+                <div class="alert signup-alert"></div>
+                <button type="button" class=summit-btn onclick='signUp()'>Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="aims.js"></script>
+    <script src="login.js"></script>
+</body>
+
+</html>

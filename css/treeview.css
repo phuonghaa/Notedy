@@ -1,0 +1,45 @@
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    user-select: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    color: #476079;
+}
+
+i{
+    margin-left: 5px;
+}
+
+.fa-angle-down {
+    -ms-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.hidden {
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+.folder-tree{
+    padding-left: 16px;
+}
+
+.file-tree{
+    padding-left: 60px;
+}
+
+.note-tree{
+    padding-left: 85px;
+}
+
+.folder-tree:hover,.file-tree:hover,.note-tree:hover{
+    background-color: gainsboro;
+    cursor: pointer;
+    user-select: none;
+}

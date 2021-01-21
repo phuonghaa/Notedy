@@ -1,0 +1,134 @@
+.main {
+    overflow-y: auto;
+    padding-left: 0;
+}
+
+*:not(.repo-zone){
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
+
+*:not(.repo-zone)::-webkit-scrollbar {
+    /* For Chrome, Safari, and Opera */
+    width: 0px; 
+}
+
+nav{
+    overflow-x: hidden;
+    background-color: #94b4a4;
+}
+
+.btn {
+    color: white;
+    font-size: 25px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#newFolderWindow .modal-body{
+    display: flex;
+}
+
+#newFileWindow .modal-body{
+    display: flex;
+}
+
+.modal .btn{
+    font-size: 1rem;
+}
+
+.web-name{
+    top: 3.2%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    user-select: none;
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 3.5rem;
+    letter-spacing: 5px;
+    position: fixed;
+}
+
+.web-name:hover{
+    cursor: pointer;
+}
+
+.repo-zone {
+    width: 15vw;
+    height: 95vh;
+    bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    float: left;
+    overflow-x: hidden;
+    overflow-y: auto;
+    white-space: nowrap;
+    position: fixed;
+}
+
+.detail-zone {
+    width: 100vw;
+    height: 95vh;
+    bottom: 0;
+    position: relative;
+    color: #495057;
+}
+
+.relative-link{
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+    font-size: 25px;
+    padding-left: 20px;
+    background-color: #d6d2c4;
+    position: fixed;   
+    user-select: none;
+}
+
+.repo-detail, .folder-detail, .file-detail{
+    height: 95vh;
+    bottom: 0;
+}
+
+.animate__animated.animate__slideInLeft, .animate__animated.animate__fadeInDown, .animate__animated.animate__fadeInUp, .animate__animated.animate__fadeIn{
+    --animate-duration: 0.5s;
+}
+
+#search-input{
+    background-color: white;
+    margin: auto;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.form-control:focus, .navbar .btn:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+.form-control-lg:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+#folder-select{
+    outline: none;
+    box-shadow: none;
+}
+
+.alert{
+    font-size: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.repo-link, .folder-link, .file-link{
+    user-select: none;;
+    text-align: center;
+    margin-left: 10px;
+}
+
+.repo-link:hover, .folder-link:hover, .file-link:hover{
+    cursor: pointer;
+    background-color: #babec1;
+}

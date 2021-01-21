@@ -1,0 +1,126 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    font-size: 20px;
+}
+
+.webname{
+    width: 100%;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(0%, 50%);
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 5.5rem;
+    letter-spacing: 5px;
+    color: white;
+}
+
+.container{
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url("../img/back.jpg");
+    background-position: center;
+    background-size: 100% 100%;
+    position: absolute;
+}
+
+.form-box{
+    width: 525px;
+    height: 570px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    background: white;
+    padding: 7.5px;
+    border-radius: 10%;
+    overflow: hidden;
+    position: absolute;
+}
+
+.button-box{
+    width: 313px;
+    margin: 52.5px auto;
+    position: relative;
+    box-shadow: 0 0 20px 9px#67e68d1f;
+    background-color: rgb(219, 236, 228);
+    border-radius: 30px;
+}
+
+.toggle-btn{
+    padding: 15px 45px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+}
+
+#btn{
+    top: 0;
+    left: 0;
+    position: absolute;
+    margin: auto;
+    width: 50% ;
+    height: 100%;
+    background: #94b4a4;
+    border-radius: 30px;
+    transition: 0.5s;
+}
+
+.input-group{
+    top: 225px;
+    position: absolute;
+    width: 390px;
+    transition: 1s;
+}
+
+.input-field{
+    width: 100%;
+    padding: 15px 0;
+    margin: 7.5px 0;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    border-bottom: 1px solid #94b4a4;
+    outline: none;
+    background: transparent;
+}
+
+.input-field:focus{
+    color: #94b4a4;
+}
+
+.summit-btn{
+    width: 100%;
+    padding: 15px 45px;
+    margin-top: 30px;
+    cursor: pointer;
+    background: #94b4a4;
+    border: none;
+    outline: none;
+    border-radius: 30px; 
+}
+
+#login{
+    left: 75px;
+}
+
+#signup{
+    left: 675px;
+}
+
+.error-alert-border{
+    border-bottom: 1px solid rgb(223, 106, 106);
+}
+
+.alert{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    height: 50px;
+}
+
+button{
+    color: white;
+}

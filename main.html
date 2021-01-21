@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notedy..!</title>
+    <link rel="icon" href="img/file.png" type="image/png" sizes="16x16">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap">
+    <link rel="stylesheet" href="bootstrap-4\css\bootstrap.min.css">
+    <link rel="stylesheet" href="css\main.css">
+    <link rel="stylesheet" href="css\folder.css">
+    <link rel="stylesheet" href="css\file.css">
+    <link rel="stylesheet" href="css\note.css">
+    <link rel="stylesheet" href="css\treeview.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="bootstrap-4\js\bootstrap.min.js"></script>
+    <script src="bootstrap-4\js\bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark text-white sticky-top">
+        <div class="left-btns btn-group">
+            <button type="button" class="btn fas fa-bars" id="folder-tree-list-btn" title="Tree View"></button>
+            <button type="button" class="btn fas fa-plus" id="new-folder-btn" title="New Folder" data-toggle="modal"
+                data-target="#newFolderWindow"></button>
+            <button type="button" class="btn fas fa-file" id="new-file-btn" title="New File" data-toggle="modal"
+                data-target="#newFileWindow"></button>
+        </div>
+
+        <div class="web-name">
+            <div>NOTEDY..!</div>
+        </div>
+
+        <div class="right-btns btn-group">
+            <button type="button" class="btn fas fa-user" data-toggle="collapse" data-target="#user-features"
+                id="user-btn" aria-controls="user-features" aria-expanded="false" aria-label="Toggle navigation"
+                title="User"></button>
+        </div>
+
+        <div class="navbar-collapse collapse" id="user-features">
+            <ul class="navbar-nav mr-auto mt-2">
+                <li class="nav-item">
+                    <h3 class="float-right pr-3 text-white" id="user-name"></h3>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link float-right pr-3" id="logout-btn" href="#" onclick="logOut()">Log Out</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="modal fade" id="newFolderWindow" tabindex="-1" role="dialog" aria-labelledby="newFolderWindowTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #d6d2c4;">
+                    <h5 class="modal-title" id="newFolderWindowTitle">New Folder</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group mx-1" style="width: 100%; margin: auto;">
+                        <input type="text" class="form-control" id="new-folder-name" placeholder="Folder Name"
+                            autocomplete="off">
+                    </div>
+                    <button type="button" class="btn btn-primary" id="add-folder-btn"
+                        onclick="addNewFolder()">Add</button>
+                </div>
+                <div class="alert alert-danger new-folder-alert-error hidden animate__animated animate__bounceIn"
+                    role="alert"></div>
+                <div class="alert alert-success new-folder-alert-success hidden animate__animated animate__bounceIn"
+                    role="alert"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="newFileWindow" tabindex="-1" role="dialog" aria-labelledby="newFileWindowTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #d6d2c4;">
+                    <h5 class="modal-title" id="newFileWindowTitle">New File</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group mx-1" style="width: 100%; margin: auto;">
+                        <select class="custom-select mr-sm-2 mb-2" id="folder-select"></select>
+                        <input type="text" class="form-control hidden animate__animated animate__fadeIn"
+                            id="new-file-name" placeholder="File Name" autocomplete="off">
+                    </div>
+                    <button type="submit" class="btn btn-primary animate__animated animate__fadeIn hidden"
+                        id="add-file-btn" onclick="addNewFile()">Add</button>
+                </div>
+                <div class="alert alert-danger new-file-alert-error hidden animate__animated animate__bounceIn"
+                    role="alert">
+                </div>
+                <div class="alert alert-success new-file-alert-success hidden animate__animated animate__bounceIn"
+                    role="alert">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteNoteConfirm" tabindex="-1" role="dialog" aria-labelledby="deleteNoteConfirm"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #d6d2c4;">
+                    <h5 class="modal-title" id="deleteNoteConfirm">Confirm</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">Delete this note?</div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="delete-note">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteFolderConfirm" tabindex="-1" role="dialog" aria-labelledby="deleteFolderConfirm"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #d6d2c4;">
+                    <h5 class="modal-title" id="deleteFolderConfirm">Confirm</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">Delete this folder and all files inside?</div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="delete-folder-btn">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteFileConfirm" tabindex="-1" role="dialog" aria-labelledby="deleteFileConfirm"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #d6d2c4;">
+                    <h5 class="modal-title" id="deleteFolderConfirm">Confirm</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">Delete this file and all notes inside?</div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="delete-file-btn">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="container-fluid repo-zone bg-light border py-2 animate__animated animate__slideInLeft"
+            style="display: none;">
+            <ul>
+                <li class="all-files mt-1"></li>
+                <li class="all-notes"></li>
+                <li class="recent-notes"></li>
+                <div class="repo-list"></div>
+            </ul>
+            <div class="dropdown-menu dropdown-menu-sm" id="treeview-context-menu">
+                <a class="dropdown-item" href="#" id="new-folder" data-toggle="modal" data-target="#newFolderWindow">New
+                    Folder</a>
+                <a class="dropdown-item" href="#" id="new-file" data-toggle="modal" data-target="#newFileWindow">New
+                    File</a>
+            </div>
+        </div>
+
+        <div class="container-fluid px-0 detail-zone animate__animated">
+            <div class="container-fluid mx-0 border-bottom relative-link text-monospace"></div>
+            <div class="container-fluid repo-detail p-x-0" style="display: none;">
+                <div class="folder-list"></div>
+                <div class="dropdown-menu dropdown-menu-sm" id="folder-context-menu">
+                    <a class="dropdown-item" href="#" id="rename-folder">Rename</a>
+                    <a class="dropdown-item" href="#" id="delete-folder" data-toggle="modal"
+                        data-target="#deleteFolderConfirm">Delete</a>
+                </div>
+            </div>
+            <div class="container-fluid folder-detail p-x-0" style="display: none;">
+                <div class="file-list"></div>
+                <div class="dropdown-menu dropdown-menu-sm" id="context-menu">
+                    <a class="dropdown-item" href="#" id="rename-file">Rename</a>
+                    <a class="dropdown-item" href="#" id="delete-file" data-toggle="modal"
+                        data-target="#deleteFileConfirm">Delete</a>
+                </div>
+            </div>
+            <div class="container-fluid file-detail p-x-0" style="display: none;">
+                <div class="note-list align-items-center"></div>
+                <span class="search-container">
+                    <div class="form-group animate__animated animate__fadeInDown hidden" id="search-input">
+                        <input type="text" class="form-control" id="key-search" placeholder="Find ..."
+                            autocomplete="off" onkeyup="displaySearchResult(searchFolder, searchFile)">
+                    </div>
+                    <span class="fas fa-search" id="search-btn"></span>
+                </span>
+                <span class="fas fa-pen" id="add-note-btn" onclick="addNewNote()" title="New Note"></span>
+                <span class="fas fa-sort-alpha-down" id="sort-file-btn" onclick="toggleSortNote()"
+                    title="Sort By Name"></span>
+            </div>
+        </div>
+    </div>
+
+    <script src="utils.js"></script>
+    <script src="aims.js"></script>
+    <script src="jqueryfunction.js"></script>
+    <script src="control.js"></script>
+</body>
+
+</html>

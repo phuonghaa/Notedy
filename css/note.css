@@ -1,0 +1,112 @@
+.note-list{
+    font-family: 'Roboto', sans-serif;
+    padding-top: 30px;
+}
+
+.note-container{
+    display: flex;
+    height: 400px;
+    width: 60%;
+    max-width: 1000px;
+    margin: auto;
+    padding: 30px;
+    /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1); */
+    border-radius: 10px;
+    background-color: #f3f3f3;
+}
+
+.note-left-col{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    margin-right: 15px;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.note-left-col img{
+    width: 100%;
+    max-width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.note-left-col .note-date{
+    font-size: 15px;
+    letter-spacing: 2px;
+    margin-top: 30px;
+    color: grey;
+}
+
+.note-right-col{
+    width: 75%;
+    overflow-y: auto;
+}
+
+.note-right-col .note-content{
+    display: block;
+    margin-top: 15px;
+    background-image: repeating-linear-gradient(180deg, transparent, transparent 29px, grey 30px);
+    width: 100%;
+    line-height: 30px;
+}
+
+.delete-note-btn, .edit-note-btn, #save-new-note-btn, #delete-new-note-btn{
+    margin-bottom: 280px;
+    float: right;
+    font-size: 25px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+#new-note .form-control{
+    border-radius: 1.3rem;
+}
+
+#add-note-btn, #search-btn{
+    font-size: 30px;
+    color: white;
+    background-color: #6c757d;
+    border: 10px solid #6c757d;
+    border-radius: 50%;
+    position: fixed;
+}
+
+#search-btn{
+    right: 50px;
+    top: 120px;
+}
+
+#add-note-btn{
+    right: 50px;
+    top: 190px;
+}
+
+#sort-file-btn{
+    right: 52px;
+    top: 510px;
+    font-size: 30px;
+    color: white;
+    background-color: #6c757d;
+    border: 10px solid #6c757d;
+    border-radius: 20%;
+    position: fixed;
+}
+
+#add-note-btn:hover, #search-btn:hover, #sort-file-btn:hover{
+    cursor: pointer;
+    background-color: #495057;
+    border: 10px solid #495057;
+}
+
+.search-container{
+    position: fixed;
+    right: 105px;
+    top: 128px;
+}
+
+.highlight{
+    background-color: yellow;
+}
