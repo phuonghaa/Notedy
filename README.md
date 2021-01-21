@@ -5,6 +5,7 @@ The project was born simply based on the needs of the authors - storing informat
 A graduating product of the course 'Code for Everyone - MindX'
 
 Author: Phuong Ha, Hoang Long
+
 Completion time: 2 weeks
 
 
